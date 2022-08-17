@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:jitsi_meet/jitsi_meet.dart';
+import 'package:testapp/second_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -55,8 +56,7 @@ class _MeetingState extends State<Meeting> {
         appBar: AppBar(
           title: const Text('Plugin example app'),
           actions: [
-            IconButton(
-                onPressed: () {}, icon: Icon(Icons.chevron_right_rounded))
+            _BtnSecondPage(),
           ],
         ),
         body: Container(
@@ -307,5 +307,24 @@ class _MeetingState extends State<Meeting> {
 
   _onError(error) {
     debugPrint("_onError broadcasted: $error");
+  }
+}
+
+class _BtnSecondPage extends StatelessWidget {
+  const _BtnSecondPage({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SecondPage()),
+        );
+      },
+      icon: Icon(Icons.chevron_right_rounded),
+    );
   }
 }

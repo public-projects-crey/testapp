@@ -2,8 +2,12 @@ import 'package:jitsi_meet/jitsi_meet.dart';
 import 'package:flutter/material.dart';
 
 class ServiceMeet {
-  createRomm() {}
+  ///aun no funciona
+  createRomm() {
+    final room = JitsiMeet.defaultRoomNameConstraints;
+  }
 
+  ///aun no funciona
   _joinMeeting(JitsiMeetingOptions options) async {
     await JitsiMeet.joinMeeting(
       options,
